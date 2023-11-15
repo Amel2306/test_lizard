@@ -56,9 +56,6 @@ function App() {
       setSelectedCategory(event.target.value);
     };
 
-    
-
-
   return ( 
     <div>
       <h1>Posts list</h1>

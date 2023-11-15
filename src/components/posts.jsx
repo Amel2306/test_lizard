@@ -1,6 +1,9 @@
 import React from 'react';
+import {useState} from 'react'
 
 const Post = (props) => {
+
+  const [visiblePosts, setVisiblePosts] = useState(5); // 5 Initial nuber of vibile posts
 
   const filteredPosts = props.filteredPosts;
 
@@ -9,11 +12,15 @@ const Post = (props) => {
     return new Date(isoDate).toLocaleDateString('en-EN', options);
   };
 
+  const handleLoadMore = () => {
+    setVisiblePosts(prev => prev + 5); // we add 5 when we click the "load more" button
+  };
+
   return (
     <div>
-      <h1>Liste des articles :</h1>
+      <h1>Posts list :</h1>
       <ul>
-        {filteredPosts && filteredPosts.map((post) => (
+        {filteredPosts && filteredPosts.slice(0, visiblePosts).map((post) => (
           <li key={post.id}> 
             <h3>{post.title}</h3>
             <div className="author">
@@ -36,6 +43,9 @@ const Post = (props) => {
           </li>
         ))}
       </ul>
+      {filteredPosts && visiblePosts < filteredPosts.length && (
+        <button className="load_more_btn" onClick={handleLoadMore}>Load More</button>
+      )}
     </div>
   );
 };
