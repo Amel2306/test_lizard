@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Post from './posts'; 
+import Posts from './posts'; 
+import "../styles/app.css"
+
 
 function App() {
 
@@ -8,7 +10,6 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(''); // the category that the user select
   const [filteredPosts, setFilteredPosts] = useState([]); // the post whish have the the selectedCategory
   const [uniqueCategories, setUniqueCategories] = useState(new Set()); // we use a set to stock or different categories to be sure to not have same category 2 times in the selection of categories
-
 
 
   useEffect(() => {
@@ -57,19 +58,36 @@ function App() {
     };
 
   return ( 
-    <div>
-      <h1>Posts list</h1>
+    <div className="app">
+      <div className="selection_category">
+        <label>
+              <input
+                className="select_category"
+                type="checkbox"
+                value={""}
+                checked={selectedCategory === ""}
+                onChange={handleCategoryChange}
+              />
+              All posts
+        </label>
+          {[...uniqueCategories].map((category) => (
+            <label key={category}>
+              <input
+                className="select_category"
+                type="checkbox"
+                value={category}
+                checked={selectedCategory === category}
+                onChange={handleCategoryChange}
+              />
+              {category}
+            </label>
+          ))}
+      </div>
 
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">All posts</option>
-        {[...uniqueCategories].map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
+      <div className="list_posts">
+        <Posts filteredPosts={filteredPosts} />        
+      </div>
 
-      <Post filteredPosts={filteredPosts} />
       
     
     </div>);

@@ -1,0 +1,21 @@
+.app {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.selection_category {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 200px;
+    background-color: #EEECE7;
+}
+
+.select_category{
+    margin-bottom: 50px;
+}
+
+.list_posts {
+    margin-right: 500px;
+}
