@@ -17,6 +17,7 @@ h1 {
     display: flex;
     border-radius: 50px;
     background-color: #EEECE7;
+    cursor: pointer;
 }
 
 .post_title {

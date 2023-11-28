@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Posts from './Posts';
 import "../styles/home.css"
 import Categories from "./Categories";
 
