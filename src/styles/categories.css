@@ -59,7 +59,7 @@
     max-height: max-content;
     margin: 30px;
     position: absolute;
-
+    cursor: pointer;
 }
 
 .selection_category {
