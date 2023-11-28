@@ -1,11 +1,14 @@
-import React from 'react';
-import {useState} from 'react'
+import {React, useState} from 'react'
 import { Icon } from '@iconify/react';
-import "../styles/post.css"
+import "../styles/posts.css"
+import { useNavigate } from "react-router-dom";
+
 
 const Posts = (props) => {
 
-  const [visiblePosts, setVisiblePosts] = useState(5); // 5 Initial nuber of vibile posts
+  const navigate= useNavigate();  
+
+  const [visiblePosts, setVisiblePosts] = useState(5); // 5 Initial number of visibile posts
 
   const filteredPosts = props.filteredPosts;
 
@@ -18,12 +21,16 @@ const Posts = (props) => {
     setVisiblePosts(visiblePosts + 5); // we add 5 when we click the "load more" button
   };
 
+  const handleClickPost = (post) => {
+    navigate('/post-detail', {state : { post: post }});
+  }
+
   return (
-    <div>
+    <div className='all_posts'>
       <h1>Posts list :</h1>
       <ul className='container'>
         {filteredPosts && filteredPosts.slice(0, visiblePosts).map((post) => (
-          <li key={post.id} className="post_card">
+          <li  onClick={() => handleClickPost(post)} key={post.id} className="post_card">
 
             <div className='post_informations'>
               <div className="author">
@@ -36,21 +43,9 @@ const Posts = (props) => {
             </div>
    
 
-            <div className='post_content'>
+            <div className='post_title'>
               <h3>{post.title}</h3>
-              <div className="summary">
-                <p> {post.summary} </p>
-              </div>
-              <ul className="categories"> 
-              {post.categories && post.categories.map((category) => (
-                  <li key={category.id} className="category">
-                    {category.name}
-                  </li>
-                ))}
-              </ul>
             </div>
-
-
           </li>
         ))}
       </ul>

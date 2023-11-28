@@ -1,85 +1,48 @@
-h1 {
-    text-align: center;
-    color: #465D5C;
-}
-
 ul {
     list-style: none;
 }
 
-.container {
+.post_content{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    max-width: 600px;
+    margin-top: 80px;
+    background-color: #EEECE7;
+    border-radius: 30px;
+}
+
+.all_posts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+  
+.post_details_card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.post_card {
-    max-width: 600px;
-    margin: 30px;
-    padding: 15px;
-    display: flex;
-    border-radius: 50px;
-    background-color: #EEECE7;
+.post_title {
+    margin: 20px;
 }
 
-.post_informations{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    min-width: 120px;
-    max-width: 150px;
-}
-
-.date {
-    font-style: italic;
-}
-
-.post_content {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.categories {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5px;
-    border-radius: 10px;
-
-}
-
-.category {
-    color: white;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 5px;
-    font-weight: bold;
-    background-color: #465D5C;
-}
-
-.load_more_btn {
+.post_data h2{
+    justify-content: center;
     text-align: center;
 }
 
-.load_more_btn button {
-    margin: 30px;
-    padding: 20px;
-    border-radius: 30px;
-    border: 2px solid white;
-    font-size: 34px;
-    background-color:#465D5C;
-    color: white;
-
+.post_info {
+    display: flex;
+    flex-direction: row;
 }
 
-.load_more_btn button:hover {
-    cursor: pointer;
-    box-shadow: 0 8px 50px white;
-    transition: 1s;
-
-}
-
-.load_more_icon {
-    margin-right: 30px;
+.summary {
+    margin-top: 40px;
+    margin-bottom: 80px;
 }
